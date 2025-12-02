@@ -1,5 +1,3 @@
--- Global defaults for SystemVerilog
-vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
@@ -20,4 +18,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Extend copy/paste to system
 vim.api.nvim_set_option("clipboard", "unnamedplus")
+
+-- Lazy plug-in manager
+require("config.lazy")
 
