@@ -3,8 +3,12 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      local custom_theme = require("lualine.themes.16color")
+      local custom_theme = require("lualine.themes.onedark")
       custom_theme.normal.c.bg = "none"
+      custom_theme.normal.a.bg = "#61AFEF"
+      custom_theme.insert.a.bg = "#98C379"
+      custom_theme.visual.a.bg = "#E5C07B"
+      custom_theme.command.a.bg = "#C678DD"
 
       require("lualine").setup({
         options = {
