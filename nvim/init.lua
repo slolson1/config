@@ -3,6 +3,7 @@ vim.cmd.colorscheme("vim")
 vim.opt.termguicolors = false
 
 -- Global defaults for SystemVerilog
+vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
