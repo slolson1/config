@@ -1,0 +1,121 @@
+{
+  "module": {
+    "prefix": ["mod", "module"],
+    "body": [
+      "//============================================================",
+      "// File       : ${1:}.sv",
+      "// Description: ${2:}",
+      "// Copyright  : (c) 2026 Mach Industries. All rights reserved.",
+      "//============================================================",
+      "",
+      "`timescale 1ns/1ps",
+      "`default_nettype none",
+      "",
+      "import ${3:}_pkg::*;",
+      "",
+      "module ${4:} (",
+      "  ${5:}",
+      ");",
+      "",
+      "  ${0:}",
+      "",
+      "endmodule",
+      "",
+      "`default_nettype wire",
+      ""
+    ]
+  },
+
+  "always_ff": {
+    "prefix": ["aff", "always_ff"],
+    "body": [
+      "always_ff @(posedge clk or posedge rst) begin",
+      "  if (rst) begin",
+      "    ${1:}",
+      "  end else begin",
+      "    ${0:}",
+      "  end",
+      "end"
+    ]
+  },
+
+  "always_comb": {
+    "prefix": ["ac", "always_comb"],
+    "body": [
+      "always_comb begin",
+      "  ${0:}",
+      "end"
+    ]
+  },
+
+  "unique case": {
+    "prefix": ["uc", "unique_case"],
+    "body": [
+      "unique case (${1:})",
+      "  ${2:IDLE}: ${3:};",
+      "  default: ${4:};",
+      "endcase"
+    ]
+  },
+
+  "state enum": {
+    "prefix": ["se", "typedef enum"],
+    "body": [
+      "typedef enum reg [${1:}_STATE_WIDTH-1:0] {",
+      "  ${2:IDLE = 0},",
+      "  ${0:}",
+      "} state_t;",
+      "",
+      "state_t curr_state, next_state;"
+    ]
+  },
+
+  "package": {
+    "prefix": ["pkg", "package"],
+    "body": [
+      "//============================================================",
+      "// File       : ${1:}",
+      "// Description: ${2:}",
+      "// Copyright  : (c) 2026 Mach Industries. All rights reserved.",
+      "//============================================================",
+      "",
+      "`timescale 1ns/1ps",
+      "`default_nettype none",
+      "",
+      "package ${3:};",
+      "",
+      "  ${0:}",
+      "",
+      "endpackage",
+      "",
+      "`default_nettype wire",
+      ""
+    ]
+  },
+
+  "clock generator": {
+    "prefix": ["clkgen"],
+    "body": [
+      "initial begin",
+      "  ${1:}_clk = 1'b0;",
+      "  forever #(${2:}_HALF_PERIOD_NS) ${1:}_clk = ~${1:}_clk;",
+      "end"
+    ]
+  },
+
+  "assertion" : {
+    "prefix": ["ast", "assert"],
+    "body": [
+      "assert (${1:got} == ${2:exp}) begin",
+      "  \\$display(\"${3:} is correct.\"${4:});",
+      "end",
+      "else begin",
+      "  \\$error(\"${3:} is incorrect!\"${4:});",
+      "  \\$display(\"${5:}Expected: %h\", ${2:exp});",
+      "  \\$display(\"${5:}Got:      %h\", ${1:got});",
+      "  error_flag = 1'b1;",
+      "end"
+    ]
+  }
+}
+
