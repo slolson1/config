@@ -1,6 +1,6 @@
 {
   "module": {
-    "prefix": ["mod", "module"],
+    "prefix": ["mod"],
     "body": [
       "//============================================================",
       "// File       : ${1:}.sv",
@@ -27,7 +27,7 @@
   },
 
   "always_ff": {
-    "prefix": ["aff", "always_ff"],
+    "prefix": ["aff"],
     "body": [
       "always_ff @(posedge clk or posedge rst) begin",
       "  if (rst) begin",
@@ -40,7 +40,7 @@
   },
 
   "always_comb": {
-    "prefix": ["ac", "always_comb"],
+    "prefix": ["ac"],
     "body": [
       "always_comb begin",
       "  ${0:}",
@@ -49,7 +49,7 @@
   },
 
   "unique case": {
-    "prefix": ["uc", "unique_case"],
+    "prefix": ["uc"],
     "body": [
       "unique case (${1:})",
       "  ${2:IDLE}: ${3:};",
@@ -59,7 +59,7 @@
   },
 
   "state enum": {
-    "prefix": ["se", "typedef enum"],
+    "prefix": ["se"],
     "body": [
       "typedef enum reg [${1:}_STATE_WIDTH-1:0] {",
       "  ${2:IDLE = 0},",
@@ -71,7 +71,7 @@
   },
 
   "package": {
-    "prefix": ["pkg", "package"],
+    "prefix": ["pkg"],
     "body": [
       "//============================================================",
       "// File       : ${1:}",
@@ -104,7 +104,7 @@
   },
 
   "assertion" : {
-    "prefix": ["ast", "assert"],
+    "prefix": ["ast"],
     "body": [
       "assert (${1:got} == ${2:exp}) begin",
       "  \\$display(\"${3:} is correct.\"${4:});",
