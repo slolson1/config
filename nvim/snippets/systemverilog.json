@@ -32,7 +32,8 @@
       "always_ff @(posedge clk or posedge rst) begin",
       "  if (rst) begin",
       "    ${1:}",
-      "  end else begin",
+      "  end",
+      "  else begin",
       "    ${0:}",
       "  end",
       "end"
